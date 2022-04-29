@@ -7,13 +7,7 @@ export const reserveSlice = createSlice({
   },
   reducers: {
     addReserveSuccess: (state, action) => {
-      const tripIndex = state.value.findIndex((trip) => trip.id === action.payload.id);
-      // console.log(tripIndex);
-      if (tripIndex >= 0) {
-        state.value[tripIndex].amount += 1;
-      } else {
-        state.value.push({ ...action.payload, amount: 1 });
-      }
+      state.value.push({ ...action.payload, amount: 1 });
     },
     removeReserve: (state, action) => {
       const tripIndex = state.value.findIndex((trip) => trip.id === action.payload);

@@ -6,7 +6,7 @@ export const reserveSlice = createSlice({
     value: [],
   },
   reducers: {
-    addReserve: (state, action) => {
+    addReserveSuccess: (state, action) => {
       const tripIndex = state.value.findIndex((trip) => trip.id === action.payload.id);
       // console.log(tripIndex);
       if (tripIndex >= 0) {
@@ -39,16 +39,6 @@ export const reserveSlice = createSlice({
   },
 });
 
-export const { addReserve, removeReserve, decrementAmountReserve, incrementAmountReserve } =
+export const { addReserveSuccess, removeReserve, decrementAmountReserve, incrementAmountReserve } =
   reserveSlice.actions;
 export default reserveSlice.reducer;
-
-// export default function reserve(state = [], action) {
-//   //console.log(state);
-//   switch (action.type) {
-//     case "ADD_RESERVE":
-//       return [...state, action.trip];
-//     default:
-//       return state;
-//   }
-// }

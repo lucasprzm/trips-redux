@@ -6,7 +6,7 @@ export const reserveSlice = createSlice({
     value: [],
   },
   reducers: {
-    pushArray: (state, action) => {
+    addReserve: (state, action) => {
       const tripIndex = state.value.findIndex((trip) => trip.id === action.payload.id);
       console.log(tripIndex);
       if (tripIndex >= 0) {
@@ -15,10 +15,16 @@ export const reserveSlice = createSlice({
         state.value.push({ ...action.payload, amount: 1 });
       }
     },
+    removeReserve: (state, action) => {
+      const tripIndex = state.value.findIndex((trip) => trip.id === action.payload);
+      if (tripIndex >= 0) {
+        state.value.splice(tripIndex, 1);
+      }
+    },
   },
 });
 
-export const { pushArray } = reserveSlice.actions;
+export const { addReserve, removeReserve } = reserveSlice.actions;
 export default reserveSlice.reducer;
 
 // export default function reserve(state = [], action) {

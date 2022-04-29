@@ -3,7 +3,7 @@ import api from "../../services/api";
 import { MdFlightTakeoff } from "react-icons/md";
 import "./style.css";
 import { useDispatch } from "react-redux";
-import { pushArray } from "../../store/modules/reserve/reducer";
+import { addReserve } from "../../store/modules/reserve/reducer";
 
 function Home() {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ function Home() {
   }, []);
 
   function handleAdd(trip) {
-    dispatch(pushArray(trip));
+    dispatch(addReserve(trip));
     //  console.log(pushArray(trip));
   }
   return (

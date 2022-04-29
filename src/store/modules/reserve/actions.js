@@ -4,3 +4,10 @@ export const addReserve = (id) => {
     id,
   };
 };
+export const incrementAmountRequest = (id, amount) => {
+  return {
+    type: "INCREMENT_AMOUNT_REQUEST",
+    id,
+    amount,
+  };
+};
